@@ -21,20 +21,20 @@ namespace WebCRUD.Controllers
         // GET: GrupoUsuarios
         public async Task<IActionResult> Index()
         {
-              return _context.Produto != null ? 
-                          View(await _context.Produto.ToListAsync()) :
-                          Problem("Entity set 'Contexto.Produto'  is null.");
+              return _context.GrupoUsuarios != null ? 
+                          View(await _context.GrupoUsuarios.ToListAsync()) :
+                          Problem("Entity set 'Contexto.GrupoUsuarios'  is null.");
         }
 
         // GET: GrupoUsuarios/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Produto == null)
+            if (id == null || _context.GrupoUsuarios == null)
             {
                 return NotFound();
             }
 
-            var grupoUsuario = await _context.Produto
+            var grupoUsuario = await _context.GrupoUsuarios
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (grupoUsuario == null)
             {
@@ -69,12 +69,12 @@ namespace WebCRUD.Controllers
         // GET: GrupoUsuarios/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Produto == null)
+            if (id == null || _context.GrupoUsuarios == null)
             {
                 return NotFound();
             }
 
-            var grupoUsuario = await _context.Produto.FindAsync(id);
+            var grupoUsuario = await _context.GrupoUsuarios.FindAsync(id);
             if (grupoUsuario == null)
             {
                 return NotFound();
@@ -120,12 +120,12 @@ namespace WebCRUD.Controllers
         // GET: GrupoUsuarios/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Produto == null)
+            if (id == null || _context.GrupoUsuarios == null)
             {
                 return NotFound();
             }
 
-            var grupoUsuario = await _context.Produto
+            var grupoUsuario = await _context.GrupoUsuarios
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (grupoUsuario == null)
             {
@@ -140,14 +140,14 @@ namespace WebCRUD.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Produto == null)
+            if (_context.GrupoUsuarios == null)
             {
-                return Problem("Entity set 'Contexto.Produto'  is null.");
+                return Problem("Entity set 'Contexto.GrupoUsuarios'  is null.");
             }
-            var grupoUsuario = await _context.Produto.FindAsync(id);
+            var grupoUsuario = await _context.GrupoUsuarios.FindAsync(id);
             if (grupoUsuario != null)
             {
-                _context.Produto.Remove(grupoUsuario);
+                _context.GrupoUsuarios.Remove(grupoUsuario);
             }
             
             await _context.SaveChangesAsync();
@@ -156,7 +156,7 @@ namespace WebCRUD.Controllers
 
         private bool GrupoUsuarioExists(int id)
         {
-          return (_context.Produto?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.GrupoUsuarios?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

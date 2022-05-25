@@ -9,8 +9,10 @@ namespace WebCRUD.Models
 
         }
 
-        public DbSet<GrupoUsuario> Produto { get; set; }
+        public DbSet<GrupoUsuario> GrupoUsuarios { get; set; }
 
         public DbSet<Usuario> Usuarios { get; set; }
+
+        public DbSet<Arquivos> Arquivos { get; set; }
     }
 }
